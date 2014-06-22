@@ -49,16 +49,16 @@ For more information about this dataset contact: activityrecognition@smartlab.ws
 ### Second data set contains summaries of whole data set.
 Whole data set means joined training and test sets.
 There are four variables:
-*Subject- indicates subject, number from 1 to 30
-*Activity.label- indicate activity, one of the following:
+* Subject- indicates subject, number from 1 to 30
+* Activity.label- indicate activity, one of the following:
   + STANDING
   + SITTING
   + LAYING
   + WALKING
   + WALKING_DOWNSTAIRS
   + WALKING_UPSTAIRS
-*Variable- indicates name of variable for which mean is computed
-*Mean- mean of given Variable for a given Activity and Subject
+* Variable- indicates name of variable for which mean is computed
+* Mean- mean of given Variable for a given Activity and Subject
 
 ### License:
 
