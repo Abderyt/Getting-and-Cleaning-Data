@@ -63,7 +63,7 @@ Binding two data sets
 whole <- rbind(test.x, train.x)
 ```
 
-Saving data set
+Finally saving data set
 ```{r}
 write.table(whole, 'wholeData.txt')
 ```
