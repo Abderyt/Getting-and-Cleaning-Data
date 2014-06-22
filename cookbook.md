@@ -1,3 +1,17 @@
+Data sets used
+==================================================================
+Human Activity Recognition Using Smartphones Dataset
+Version 1.0
+==================================================================
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Universitŕ degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
+==================================================================
+
+
 Feature Selection 
 =================
 
@@ -15,12 +29,14 @@ mean: Mean value
 std: Standard deviation
 
 Moreover there are 3 additional variables:
-* Set: factor variable, indicate from which data set come given record
+* Set: factor variable, indicate from which data set come given record. Possible values:
++ test
++ training
 * Activity.label: factor variable that describe activity. It has six levels:
--STANDING
--SITTING
--LAYING
--WALKING
--WALKING_DOWNSTAIRS
--WALKING_UPSTAIRS
++STANDING
++SITTING
++LAYING
++WALKING
++WALKING_DOWNSTAIRS
++WALKING_UPSTAIRS
 * Subject- factor variable decribing person related with observation. There are 30 people.
