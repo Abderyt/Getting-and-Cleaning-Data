@@ -32,10 +32,10 @@ Moreover there are 3 additional variables:
 + test
 + training
 * Activity.label: factor variable that describe activity. It has six levels:
-+STANDING
-+SITTING
-+LAYING
-+WALKING
-+WALKING_DOWNSTAIRS
-+WALKING_UPSTAIRS
+  + STANDING
+  + SITTING
+  + LAYING
+  + WALKING
+  + WALKING_DOWNSTAIRS
+  + WALKING_UPSTAIRS
 * Subject- factor variable decribing person related with observation. There are 30 people.
