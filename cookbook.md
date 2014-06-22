@@ -27,13 +27,13 @@ The set of variables that were estimated from these signals and was used in resu
 mean: Mean value
 std: Standard deviation
 
-## Notes: 
+### Notes: 
 - Features are normalized and bounded within [-1,1].
 - Each feature vector is a row on the text file.
 
 For more information about this dataset contact: activityrecognition@smartlab.ws
 
-Moreover there are 3 additional variables:
+### Moreover there are 3 additional variables:
 * Set: factor variable, indicate from which data set come given record. Possible values:
 + test
 + training
@@ -46,7 +46,7 @@ Moreover there are 3 additional variables:
   + WALKING_UPSTAIRS
 * Subject- factor variable decribing person related with observation. There are 30 people.
 
-## License:
+### License:
 
 Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
 
