@@ -2,6 +2,11 @@ Getting and Cleaning Data
 Project script description
 =========================
 
+
+### First data set
+### Consist of training and test sets
+### And only mean() and std() variables
+
 Following lines read test set, its activity and subject
 ```{r}
 test.x <- read.table("UCI HAR Dataset\\test\\X_test.txt")
@@ -66,4 +71,61 @@ whole <- rbind(test.x, train.x)
 Finally saving data set
 ```{r}
 write.table(whole, 'wholeData.txt')
+```
+
+### Second data set
+### Containing summaries of data
+### Namely for each activity and each subject there is mean of values for each variable
+
+Read test set, its activity and subject
+```
+test.x <- read.table("UCI HAR Dataset\\test\\X_test.txt")
+test.y <- read.table("UCI HAR Dataset\\test\\y_test.txt")
+test.sub <- read.table("UCI HAR Dataset\\test\\subject_test.txt")
+```
+
+Read train set, its activity and subject
+```
+train.x <- read.table("UCI HAR Dataset\\train\\X_train.txt")
+train.y <- read.table("UCI HAR Dataset\\train\\y_train.txt")
+train.sub <- read.table("UCI HAR Dataset\\train\\subject_train.txt")
+```
+
+Read variable names
+```
+lab <- read.table("UCI HAR Dataset\\features.txt", stringsAsFactors=FALSE)
+act.lab <- read.table("UCI HAR Dataset\\activity_labels.txt", stringsAsFactors=FALSE)
+activity.labels <- act.lab[, 2]
+names(activity.labels) <- act.lab[, 1]
+```
+
+Add names of variables
+```
+colnames(test.x) <- lab[, 2]
+colnames(train.x) <- lab[, 2]
+```
+
+Add information about activity level and subject
+```
+test.x$Activity.label <- activity.labels[as.character(test.y[,1])]
+test.x$Subject <- test.sub[,1]
+train.x$Activity.label <- activity.labels[as.character(train.y[,1])]
+train.x$Subject <- train.sub[,1]
+```
+
+Merge data sets
+```
+whole <- rbind(test.x, train.x)
+```
+
+```
+library(reshape2)
+meltData <- melt(whole, id.vars = c('Subject', 'Activity.label'), measure.vars=setdiff(colnames(whole), c('Subject', 'Activity.label')))
+meanData <- aggregate(as.numeric(meltData$value), by = list(meltData$Subject, meltData$Activity.label, meltData$variable), mean)
+colnames(meanData) <- c('Subject', 'Activity.label', 'Variable', 'Mean')
+```
+
+Saving data set
+```
+write.table(meanData, 'summaries.txt')
 ```
