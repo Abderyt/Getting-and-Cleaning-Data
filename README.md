@@ -118,9 +118,14 @@ Merge data sets
 whole <- rbind(test.x, train.x)
 ```
 
+Melting data to obain one column with all values of all variables
 ```
 library(reshape2)
 meltData <- melt(whole, id.vars = c('Subject', 'Activity.label'), measure.vars=setdiff(colnames(whole), c('Subject', 'Activity.label')))
+```
+
+Compute mean of each subject, activity and variable
+```
 meanData <- aggregate(as.numeric(meltData$value), by = list(meltData$Subject, meltData$Activity.label, meltData$variable), mean)
 colnames(meanData) <- c('Subject', 'Activity.label', 'Variable', 'Mean')
 ```
